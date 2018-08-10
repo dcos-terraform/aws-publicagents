@@ -47,7 +47,7 @@ module "dcos-public-agent-instances" {
   hostname_format    = "${var.hostname_format}"
   num                = "${var.num_public_agents}"
   ami                = "${coalesce(var.aws_ami,module.dcos-tested-oses.aws_ami)}"
-  user_data          = "${var.aws_ami == "" ? module.dcos-tested-oses.os-setup : var.aws_user_data}"
+  user_data          = "${var.user_data}"
   instance_type      = "${var.aws_instance_type}"
   subnet_ids         = ["${var.aws_subnet_ids}"]
   security_group_ids = ["${var.aws_security_group_ids}"]
@@ -59,7 +59,7 @@ module "dcos-public-agent-instances" {
 
 resource "null_resource" "masters" {
   // if the user supplies an AMI or user_data we expect the prerequisites are met.
-  count = "${coalesce(var.aws_ami, var.user_data) == "" ? var.num_masters : 0}"
+  count = "${coalesce(var.aws_ami, var.user_data) == "" ? var.num_public_agents : 0}"
 
   connection {
     host = "${var.aws_associate_public_ip_address ? element(module.dcos-public-agent-instances.public_ips, count.index) : element(module.dcos-public-agent-instances.private_ips, count.index)}"

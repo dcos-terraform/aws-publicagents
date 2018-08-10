@@ -33,12 +33,12 @@ module "dcos-public-agent-instances" {
 | aws_root_volume_type | Root volume type | string | `standard` | no |
 | aws_security_group_ids | Firewall IDs to use for these instances | list | - | yes |
 | aws_subnet_ids | Subnets to spawn the instances in. The module tries to distribute the instances | list | - | yes |
-| aws_user_data | User data to be used on these instances (cloud-init) | string | `` | no |
 | cluster_name | Cluster name all resources get named and tagged with | string | - | yes |
 | dcos_instance_os | Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `centos_7.4` | no |
 | hostname_format | Format the hostname inputs are index+1, region, cluster_name | string | `%[3]s-publicagent%[1]d-%[2]s` | no |
 | num_public_agents | Number of public agents to spawn | string | `1` | no |
 | tags | Custom tags added to the resources created by this module | map | `<map>` | no |
+| user_data | User data to be used on these instances (cloud-init) | string | `` | no |
 
 ## Outputs
 
