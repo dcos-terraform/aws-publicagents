@@ -25,7 +25,7 @@ module "dcos-public-agent-instances" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | aws_ami | AMI to be used | string | `` | no |
-| aws_associate_public_ip_address | Instance profile to be used for these instances | string | `true` | no |
+| aws_associate_public_ip_address | Associate a public ip address with there instances | string | `true` | no |
 | aws_iam_instance_profile | Instance profile to be used for these instances | string | `` | no |
 | aws_instance_type | Instance type | string | `t2.medium` | no |
 | aws_key_name | EC2 SSH key to use for these instances | string | - | yes |

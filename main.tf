@@ -56,3 +56,28 @@ module "dcos-public-agent-instances" {
   root_volume_type   = "${var.aws_root_volume_type}"
   tags               = "${var.tags}"
 }
+
+resource "null_resource" "masters" {
+  // if the user supplies an AMI or user_data we expect the prerequisites are met.
+  count = "${coalesce(var.aws_ami, var.user_data) == "" ? var.num_masters : 0}"
+
+  connection {
+    host = "${var.aws_associate_public_ip_address ? element(module.dcos-public-agent-instances.public_ips, count.index) : element(module.dcos-public-agent-instances.private_ips, count.index)}"
+    user = "${module.dcos-tested-oses.user}"
+  }
+
+  provisioner "file" {
+    content = "${module.dcos-tested-oses.os-setup}"
+
+    destination = "/tmp/dcos-prereqs.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/dcos-prereqs.sh",
+      "sudo bash -x /tmp/dcos-prereqs.sh",
+    ]
+  }
+
+  depends_on = ["module.dcos-public-agent-instances"]
+}

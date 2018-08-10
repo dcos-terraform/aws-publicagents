@@ -44,7 +44,7 @@ variable "aws_iam_instance_profile" {
 }
 
 variable "aws_associate_public_ip_address" {
-  description = "Instance profile to be used for these instances"
+  description = "Associate a public ip address with there instances"
   default     = true
 }
 
