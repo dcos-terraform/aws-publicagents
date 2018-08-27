@@ -54,6 +54,7 @@ module "dcos-public-agent-instances" {
   key_name           = "${var.aws_key_name}"
   root_volume_size   = "${var.aws_root_volume_size}"
   root_volume_type   = "${var.aws_root_volume_type}"
+  associate_public_ip_address = "${var.aws_associate_public_ip_address}"
   tags               = "${var.tags}"
 }
 
