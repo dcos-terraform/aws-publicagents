@@ -8,7 +8,7 @@
  *
  *```hcl
  * module "dcos-public-agent-instances" {
- *   source  = "terraform-dcos/private-agents/aws"
+ *   source  = "dcos-terraform/public-agents/aws"
  *   version = "~> 0.1"
  *
  *   cluster_name = "production"
