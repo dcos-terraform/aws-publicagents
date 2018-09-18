@@ -32,18 +32,18 @@ module "dcos-public-agent-instances" {
     aws = "aws"
   }
 
-  cluster_name       = "${var.cluster_name}"
-  hostname_format    = "${var.hostname_format}"
-  num                = "${var.num_public_agents}"
-  ami                = "${var.aws_ami}"
-  user_data          = "${var.user_data}"
-  instance_type      = "${var.aws_instance_type}"
-  subnet_ids         = ["${var.aws_subnet_ids}"]
-  security_group_ids = ["${var.aws_security_group_ids}"]
-  key_name           = "${var.aws_key_name}"
-  root_volume_size   = "${var.aws_root_volume_size}"
-  root_volume_type   = "${var.aws_root_volume_type}"
+  cluster_name                = "${var.cluster_name}"
+  hostname_format             = "${var.hostname_format}"
+  num                         = "${var.num_public_agents}"
+  ami                         = "${var.aws_ami}"
+  user_data                   = "${var.user_data}"
+  instance_type               = "${var.aws_instance_type}"
+  subnet_ids                  = ["${var.aws_subnet_ids}"]
+  security_group_ids          = ["${var.aws_security_group_ids}"]
+  key_name                    = "${var.aws_key_name}"
+  root_volume_size            = "${var.aws_root_volume_size}"
+  root_volume_type            = "${var.aws_root_volume_type}"
   associate_public_ip_address = "${var.aws_associate_public_ip_address}"
-  tags               = "${var.tags}"
+  tags                        = "${var.tags}"
   dcos_instance_os            = "${var.dcos_instance_os}"
 }
