@@ -46,4 +46,5 @@ module "dcos-public-agent-instances" {
   associate_public_ip_address = "${var.aws_associate_public_ip_address}"
   tags                        = "${var.tags}"
   dcos_instance_os            = "${var.dcos_instance_os}"
+  iam_instance_profile        = "${var.aws_iam_instance_profile}"
 }
