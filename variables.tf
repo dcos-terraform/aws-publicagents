@@ -72,3 +72,8 @@ variable "num_public_agents" {
   description = "Specify the amount of public agents. These agents will host marathon-lb and edgelb"
   default     = "1"
 }
+
+variable "name_prefix" {
+  description = "Name Prefix"
+  default     = ""
+}
