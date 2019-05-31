@@ -28,6 +28,11 @@ variable "aws_root_volume_type" {
   default     = "standard"
 }
 
+variable "aws_extra_volumes" {
+  description = "Extra volumes for each instance"
+  default     = []
+}
+
 variable "aws_subnet_ids" {
   description = "Subnets to spawn the instances in. The module tries to distribute the instances"
   type        = "list"
