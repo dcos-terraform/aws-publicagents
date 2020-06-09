@@ -4,7 +4,7 @@ variable "cluster_name" {
 
 variable "tags" {
   description = "Add custom tags to all resources"
-  type        = "map"
+  type        = map(string)
   default     = {}
 }
 
@@ -35,12 +35,12 @@ variable "aws_extra_volumes" {
 
 variable "aws_subnet_ids" {
   description = "Subnets to spawn the instances in. The module tries to distribute the instances"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "aws_security_group_ids" {
   description = "Firewall IDs to use for these instances"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "aws_iam_instance_profile" {
@@ -82,3 +82,4 @@ variable "name_prefix" {
   description = "Name Prefix"
   default     = ""
 }
+
